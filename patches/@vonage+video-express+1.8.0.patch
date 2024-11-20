@@ -1,0 +1,16 @@
+diff --git a/node_modules/@vonage/video-express/dist/video-express.esm.js b/node_modules/@vonage/video-express/dist/video-express.esm.js
+index 8f6a57f..7e3cfac 100644
+--- a/node_modules/@vonage/video-express/dist/video-express.esm.js
++++ b/node_modules/@vonage/video-express/dist/video-express.esm.js
+@@ -3947,8 +3947,9 @@ var hasEndToEndEncryptionSupport = (function () {
+   return OT.hasEndToEndEncryptionSupport();
+ });
+ 
+-var _require = /*#__PURE__*/require('../package.json'),
+-  version = _require.publicVersion;
++// var _require = /*#__PURE__*/require('../package.json'),
++//   version = _require.publicVersion;
++var version = __APP_VERSION__;
+ 
+ export { PreviewPublisher, RoomWrapper as Room, getActiveAudioOutputDevice, getAudioOutputDevices, getDevices, hasEndToEndEncryptionSupport, hasMediaProcessorSupport, logLevel, setAudioOutputDevice, setLogLevel, setProxyUrl, version };
+ //# sourceMappingURL=video-express.esm.js.map
