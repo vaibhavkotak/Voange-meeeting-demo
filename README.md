@@ -1,13 +1,20 @@
-Here is the demo for vonage video api.
-Here is the steos to setup project in your system
+# Project Setup Instructions
 
-1.Get the clone of the repo.
-2.Run the command >> "composer Install" or "composer update"
-3.Run the command >> "npm Install" & "npm run dev"
-4.setup .env file based on example .env.example add the necessary credential
-5.Run the command >> "php artisan migrate" for the migration
-6.Run the project with command >> "php artisan serve"
+Follow these steps to set up the Vonage Video API project on your system:
 
-Run the url in browser which you get in last step
+1. Clone the repository to your local system.
+2. Run the following commands:
+   - `composer install` or `composer update`
+3. Run the following commands:
+   - `npm install`
+   - `npm run dev`
+4. Set up the `.env` file based on the example `.env.example`, adding the necessary credentials.
+5. Run the command:
+   - `php artisan migrate` (to execute migrations)
+6. Start the project with the command:
+   - `php artisan serve`
+7. Open the URL displayed in the last step in your browser.
 
-now you need to register the user and login to the site
+Once the project is running:
+- Register a new user.
+- Log in to the site using your credentials.
