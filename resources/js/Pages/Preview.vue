@@ -1,5 +1,3 @@
-preview
-
 <template>
     <Head title="Room" />
 
@@ -101,6 +99,15 @@ preview
                             />
                         </button>
                     </div>
+
+                    <div class="flext w-full max-w-fit justify-center items-center mx-auto">
+                        <Link
+                            :href="route('room', props.room.id)"
+                            class="block bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded cursor-pointer"
+                        >
+                            Join
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
@@ -110,7 +117,7 @@ preview
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Head } from "@inertiajs/vue3";
+import { Head, Link } from "@inertiajs/vue3";
 import { Room, PreviewPublisher } from "@vonage/video-express";
 
 const appUrl = ref(import.meta.env.VITE_APP_URL);
@@ -121,6 +128,7 @@ const props = defineProps({
     apikey: String,
     session_id: String,
     token: String,
+    room: Array,
 });
 const backgroundStyle = ref({ backgroundColor: "transparent" });
 // Reactive state
@@ -184,7 +192,6 @@ const applyVideoFilter = async (filterType, options = {}) => {
     }
 
     try {
-        console.log(options);
         switch (filterType) {
             case "none":
                 await previewPublisher.clearVideoFilter();
@@ -238,7 +245,7 @@ const videoIconStyle = computed(() => {
     return isVideoOn.value ? {} : { backgroundColor: "red" };
 });
 // Lifecycle hook for initialization
-onMounted(async () => {  
+onMounted(async () => {
     // // Initialize PreviewPublisher
     previewPublisher = new PreviewPublisher("previewContainer");
     console.log(previewPublisher);
@@ -278,7 +285,7 @@ div#previewContainer .OT_mirrored {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 140px;
+    bottom: 180px;
     z-index: 999;
     gap: 30px;
     width: 100%;

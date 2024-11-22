@@ -15,12 +15,15 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/room', [RoomController::class, 'joinRoom'])->middleware(['auth', 'verified'])->name('room');
-Route::get('/preview', [RoomController::class, 'previewRoom'])->middleware(['auth', 'verified'])->name('room');
+Route::get('/dashboard', [RoomController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/room/{id}', [RoomController::class, 'joinRoom'])->middleware(['auth', 'verified'])->name('room');
+Route::get('/preview/{id}', [RoomController::class, 'previewRoom'])->middleware(['auth', 'verified'])->name('previewRoom');
+Route::get('/create-room', [RoomController::class, 'createRoom'])->middleware(['auth', 'verified'])->name('createRoom');
+Route::post('/store-meeting', [RoomController::class, 'storeMeeting'])->middleware(['auth', 'verified'])->name('storeMeeting');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
